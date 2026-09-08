@@ -1,0 +1,482 @@
+/* =========================
+   GENERAL
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    background: #ffd6e7;
+}
+
+.page {
+    display: none;
+    min-height: 100vh;
+    width: 100%;
+    padding: 35px 20px;
+    text-align: center;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    z-index: 2;
+}
+
+.page.active {
+    display: flex;
+}
+
+h1 {
+    max-width: 800px;
+    margin: 0 0 25px;
+    font-size: 32px;
+    color: #5a1834;
+}
+
+p {
+    max-width: 750px;
+    line-height: 1.7;
+    font-size: 20px;
+    color: #401526;
+}
+
+
+/* =========================
+   BACKGROUNDS DES PAGES
+========================= */
+
+#page1 {
+    background: linear-gradient(
+        135deg,
+        #9ddcff,
+        #dff5ff
+    );
+}
+
+#page2 {
+    background: linear-gradient(
+        135deg,
+        #ffc6dd,
+        #fff0f6
+    );
+}
+
+#page3 {
+    background: linear-gradient(
+        135deg,
+        #fff0c7,
+        #ffe1ec
+    );
+}
+
+#page4 {
+    background: linear-gradient(
+        135deg,
+        #d7c2ff,
+        #f7eaff
+    );
+}
+
+#page5 {
+    background: linear-gradient(
+        135deg,
+        #d9f5df,
+        #fff0d2
+    );
+}
+
+
+/* =========================
+   BOUTONS
+========================= */
+
+button {
+    border: none;
+    border-radius: 30px;
+    padding: 15px 25px;
+    margin: 10px;
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    background: white;
+    color: #5a1834;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+
+/* =========================
+   BOUTONS CHOIX
+========================= */
+
+.buttons,
+.choices {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 700px;
+}
+
+
+/* =========================
+   MESSAGE PAGE 1
+========================= */
+
+#page1Message {
+    min-height: 35px;
+    font-weight: bold;
+    color: #9b2455;
+}
+
+
+/* =========================
+   HIDDEN
+========================= */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================
+   ALERTE MAUVAIS CHOIX
+========================= */
+
+.wrongChoice {
+    position: fixed;
+    inset: 0;
+
+    z-index: 100;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    padding: 20px;
+}
+
+.alertBox {
+    width: min(90%, 500px);
+
+    padding: 35px 25px;
+
+    text-align: center;
+
+    background: white;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 15px 50px rgba(0, 0, 0, 0.35);
+
+    animation: alertAppear 0.3s ease;
+}
+
+.alertIcon {
+    font-size: 70px;
+    margin-bottom: 10px;
+
+    animation: warning 0.7s infinite alternate;
+}
+
+.alertBox h1 {
+    margin-bottom: 10px;
+    color: #d90000;
+    font-size: 40px;
+}
+
+.alertBox p {
+    margin: 8px 0;
+    color: #5a1834;
+    font-weight: bold;
+}
+
+
+/* =========================
+   SCENE 🍆🍑
+========================= */
+
+.fruitScene {
+    position: relative;
+
+    width: 300px;
+    height: 230px;
+
+    margin-bottom: 20px;
+}
+
+
+/* Aubergine derrière */
+
+.eggplant {
+    position: absolute;
+
+    left: 48px;
+    top: 72px;
+
+    z-index: 2;
+
+    font-size: 95px;
+
+    animation:
+        eggplantMove
+        1.5s
+        infinite
+        ease-in-out;
+}
+
+
+/* Pêche devant */
+
+.peach {
+    position: absolute;
+
+    left: 135px;
+    top: 65px;
+
+    z-index: 3;
+
+    font-size: 95px;
+
+    animation:
+        peachMove
+        1.8s
+        infinite
+        ease-in-out;
+}
+
+
+/* =========================
+   TEXTE FINAL
+========================= */
+
+.finalText {
+    font-size: 40px;
+    color: #7a2850;
+
+    animation:
+        finalAppear
+        1s
+        ease;
+}
+
+
+/* =========================
+   COEURS DÉCORATIFS
+========================= */
+
+.hearts {
+    position: fixed;
+
+    top: 15px;
+    left: 0;
+
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 24px;
+    letter-spacing: 8px;
+
+    opacity: 0.7;
+
+    z-index: 10;
+
+    pointer-events: none;
+
+    animation:
+        heartsFloat
+        3s
+        infinite
+        ease-in-out;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes eggplantMove {
+
+    0% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(6px);
+    }
+
+    100% {
+        transform: translateX(-5px);
+    }
+}
+
+
+@keyframes peachMove {
+
+    0% {
+        transform:
+            translate(0, 0);
+    }
+
+    25% {
+        transform:
+            translate(5px, -4px);
+    }
+
+    50% {
+        transform:
+            translate(-5px, 5px);
+    }
+
+    75% {
+        transform:
+            translate(4px, -3px);
+    }
+
+    100% {
+        transform:
+            translate(0, 0);
+    }
+}
+
+
+@keyframes alertAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+@keyframes warning {
+
+    from {
+        transform: rotate(-5deg);
+    }
+
+    to {
+        transform: rotate(5deg);
+    }
+}
+
+
+@keyframes finalAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes heartsFloat {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   TELEPHONE
+========================= */
+
+@media (max-width: 600px) {
+
+    .page {
+        padding: 30px 15px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    button {
+        width: 90%;
+        max-width: 350px;
+        font-size: 16px;
+    }
+
+    .fruitScene {
+        width: 280px;
+        height: 220px;
+    }
+
+    .eggplant {
+        left: 35px;
+        top: 70px;
+        font-size: 85px;
+    }
+
+    .peach {
+        left: 120px;
+        top: 65px;
+        font-size: 85px;
+    }
+
+    .finalText {
+        font-size: 32px;
+    }
+
+    .hearts {
+        font-size: 20px;
+        letter-spacing: 4px;
+    }
+
+    .alertBox {
+        padding: 30px 15px;
+    }
+
+    .alertBox h1 {
+        font-size: 34px;
+    }
+  }
