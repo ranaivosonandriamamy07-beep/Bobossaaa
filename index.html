@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pour toi ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Cœurs décoratifs -->
+    <div class="hearts">
+        ❤️ 💕 💗 💞 💓 💖 ❤️ 💕
+    </div>
+
+
+    <!-- PAGE 1 -->
+    <section id="page1" class="page active">
+
+        <h1>Bonsoir Cherie ❤️</h1>
+
+        <p>Ça va toi mafotaa ? 🥺</p>
+
+        <div class="buttons">
+            <button onclick="answerCaVa('oui')">
+                Ça va
+            </button>
+
+            <button onclick="answerCaVa('non')">
+                Ça va pas
+            </button>
+        </div>
+
+        <p id="page1Message"></p>
+
+        <button
+            id="continuePage1"
+            class="hidden"
+            onclick="goToPage2()">
+            Continuer ❤️
+        </button>
+
+    </section>
+
+
+    <!-- PAGE 2 -->
+    <section id="page2" class="page">
+
+        <h1 id="page2Message"></h1>
+
+        <button onclick="goToPage3()">
+            Comme ça tu me connais bien bb 😒
+        </button>
+
+    </section>
+
+
+    <!-- PAGE 3 -->
+    <section id="page3" class="page">
+
+        <h1>Juste ici pour te dire ❤️</h1>
+
+        <p>
+            Je T'aime beaucoup et j'oserai plus faire Mal
+            a ton petit Coeur tout mignon et IL faut que JE
+            mange cette Coeur bb , aller n'oublie pas que
+            JE T'aime bee an 🥺❤️
+        </p>
+
+        <button onclick="goToPage4()">
+            Continue bb je T'aime aussi ❤️
+        </button>
+
+    </section>
+
+
+    <!-- PAGE 4 -->
+    <section id="page4" class="page">
+
+        <h1>Choisis bien bb 😌❤️</h1>
+
+        <div class="choices">
+
+            <button onclick="chooseDeclaration(1)">
+                Je T'aime beaucoup avec beaucoup de desir sexuel ❤️
+            </button>
+
+            <button onclick="chooseDeclaration(2)">
+                Je T'aime plus que hier et bien moins que demain ❤️
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- MAUVAIS CHOIX -->
+    <div id="wrongChoice" class="wrongChoice hidden">
+
+        <div class="alertBox">
+
+            <div class="alertIcon">
+                🚨
+            </div>
+
+            <h1>
+                ALERTE
+            </h1>
+
+            <p>
+                ELLE FAIS UN MAUVAIS CHOIX 😭
+            </p>
+
+            <p>
+                AZYY BB REPETE 😂
+            </p>
+
+            <button onclick="repeatChoice()">
+                JE VAIS faire le correcte ❤️
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- PAGE 5 : DERNIÈRE PAGE -->
+    <section id="page5" class="page">
+
+        <div class="fruitScene">
+
+            <!-- Aubergine derrière -->
+            <div class="eggplant">
+                🍆
+            </div>
+
+            <!-- Pêche devant -->
+            <div class="peach">
+                🍑
+            </div>
+
+        </div>
+
+        <h1 class="finalText">
+            Comme nous 😂❤️
+        </h1>
+
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
